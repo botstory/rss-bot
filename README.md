@@ -25,7 +25,7 @@ Anyway from my point of few it was very cool idea to describe updates of
 web page in declarative way. It looks very natural.
 
 Even so there some controversial issues:
-* **XML** - in the modern world where we have JSON and YAML XML looks
+* :package: **XML** - in the modern world where we have JSON and YAML XML looks
 strange and clumsy
 
 
