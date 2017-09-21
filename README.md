@@ -45,3 +45,8 @@ strange and clumsy
   - **[Reddit for MachineLearning](https://www.reddit.com/r/MachineLearning/)** [RSS](https://www.reddit.com/r/MachineLearning/.rss)
   - **[New comments about Canada on Ukraine Developers forum](https://dou.ua/forums/tags/%D0%9A%D0%B0%D0%BD%D0%B0%D0%B4%D0%B0/)** [RSS](https://dou.ua/forums/feed/tag/%D0%9A%D0%B0%D0%BD%D0%B0%D0%B4%D0%B0/)
   - **[Artificial Network Wikipedia page updates (Revision history)](https://en.wikipedia.org/w/index.php?title=Artificial_intelligence&action=history)** [RSS](https://en.wikipedia.org/w/index.php?title=Artificial_intelligence&feed=atom&action=history)
+
+## How to use RSS bot?
+
+- start chat with the RSS Bot
+- ask her to send you updates about certain page
