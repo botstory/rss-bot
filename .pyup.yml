@@ -1,0 +1,3 @@
+branch: develop
+branch_prefix: pyup/
+close_prs: True
