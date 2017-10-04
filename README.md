@@ -52,3 +52,7 @@ strange and clumsy
 - ask her to send you updates about certain page
 
 ## :construction: TODO: How messenger could be useful?
+
+## Mindmap of bot
+
+![Mind map](assets/rss-bot-mind-map.png)
