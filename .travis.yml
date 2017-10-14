@@ -17,7 +17,7 @@ before_install:
   - pip install coveralls
 
 script:
-  - py.test --cov boilerplate --cov-report term-missing
+  - py.test --cov rssbot --cov-report term-missing
 
 after_success:
   - coveralls
