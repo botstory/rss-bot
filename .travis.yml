@@ -1,0 +1,23 @@
+sudo: required
+
+language: python
+
+python:
+  - "3.6"
+
+services:
+  - mongodb
+
+env:
+  MONGODB_URI: 127.0.0.1
+  MONGODB_DB_NAME: test
+
+before_install:
+  - pip install -r requirements.txt
+  - pip install coveralls
+
+script:
+  - py.test --cov boilerplate --cov-report term-missing
+
+after_success:
+  - coveralls
