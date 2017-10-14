@@ -1,4 +1,4 @@
-# rss-bot
+# rss-bot [![Build Status](https://travis-ci.org/botstory/rss-bot.svg?branch=develop)](https://travis-ci.org/botstory/rss-bot)
 rss bot - Too old to die young :godmode:
 
 ## Isn't it dead and gone? Current state of RSS
