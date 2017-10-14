@@ -1,4 +1,4 @@
-# rss-bot [![Build Status](https://travis-ci.org/botstory/rss-bot.svg?branch=develop)](https://travis-ci.org/botstory/rss-bot) [![Updates](https://pyup.io/repos/github/botstory/rss-bot/shield.svg)](https://pyup.io/repos/github/botstory/rss-bot/) [![Python 3](https://pyup.io/repos/github/botstory/rss-bot/python-3-shield.svg)](https://pyup.io/repos/github/botstory/rss-bot/)
+# rss-bot [![Build Status](https://travis-ci.org/botstory/rss-bot.svg?branch=develop)](https://travis-ci.org/botstory/rss-bot) [![Updates](https://pyup.io/repos/github/botstory/rss-bot/shield.svg)](https://pyup.io/repos/github/botstory/rss-bot/) [![Python 3](https://pyup.io/repos/github/botstory/rss-bot/python-3-shield.svg)](https://pyup.io/repos/github/botstory/rss-bot/) [![Coverage Status](https://coveralls.io/repos/github/botstory/rss-bot/badge.svg?branch=develop)](https://coveralls.io/github/botstory/rss-bot?branch=develop)
 rss bot - Too old to die young :godmode:
 
 ## Isn't it dead and gone? Current state of RSS
