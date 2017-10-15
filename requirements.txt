@@ -2,7 +2,6 @@ botstory==0.1.5
 dateparser==0.6.0
 emoji==0.4.5
 gunicorn==19.7.1
-imageio
 inflection==0.3.1
 humanize==0.5.1
 pytest==3.2.3
@@ -12,4 +11,3 @@ pytest-catchlog==1.2.2
 pytest-cov==2.5.1
 pytest-mock==1.6.3
 python-slugify==1.2.4
-Wand
