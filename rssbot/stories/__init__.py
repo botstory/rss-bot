@@ -6,6 +6,7 @@ from rssbot.stories.receive_feed import receive_feed_stories
 story_modules = (
     greeting_stories,
     query_stories,
+    receive_feed_stories,
 
     # last hope :)
     # if we haven't handle message before,

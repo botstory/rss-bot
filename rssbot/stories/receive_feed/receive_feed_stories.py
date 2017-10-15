@@ -9,6 +9,8 @@ logger = logging.getLogger(__name__)
 
 
 def setup(story):
+    logger.debug('setup receive feed stories')
+
     @story.on(text.Match(is_url.PATTERN))
     def url_message():
         @story.part()
