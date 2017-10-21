@@ -1,7 +1,10 @@
 from botstory.middlewares import any, option, sticker, text
 from botstory.integrations import commonhttp
+from datetime import datetime, timezone
+import dateutil.parser
 import emoji
 import feedparser
+import humanize
 import logging
 
 import rssbot
@@ -20,8 +23,12 @@ def setup(story):
             logger.info('# receive url')
 
             await story.say(
-                'Thanks for link. '
-                'I\'m going to define whether it feed or some resource',
+                'Thanks for the link. '
+                'I\'m going to define whether it feed or something else.',
+                user=ctx['user'],
+            )
+
+            await story.start_typing(
                 user=ctx['user'],
             )
 
@@ -50,27 +57,69 @@ def setup(story):
                 #   'scheme': 'http://www.itunes.com/',
                 #   'term': 'Tech News'},
 
-                await story.say(
-                    'Feed: {} by {}'.format(title, author),
-                    user=ctx['user']
-                )
+                #
+                # Do not yet decided which way is better to reflect feed
+                #
+                # await story.say(
+                #     'Feed: {} by {}'.format(title, author),
+                #     user=ctx['user']
+                # )
+                #
+                # await story.send_image(
+                #     img_url,
+                #     user=ctx['user']
+                # )
 
-                await story.send_image(
-                    img_url,
-                    user=ctx['user']
+                await story.send_template(
+                    payload={
+                        'template_type': 'generic',
+                        'elements': [
+                            {
+                                'title': 'Feed: {} by {}'.format(title, author),
+                                'image_url': img_url,
+                                'subtitle': summary,
+                                # 'default_action': {
+                                #     'type': 'web_url',
+                                #     'url': link,
+                                # },
+                                'buttons': [
+                                    {
+                                        'type': 'web_url',
+                                        'url': link,
+                                        'title': 'Website'
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    user=ctx['user'],
                 )
 
                 for entry in d.entries:
                     # entry.id #UID
 
                     try:
-                        await story.send_image(entry.image.href,
+                        href = entry.image.href
+                        await story.start_typing(
+                            user=ctx['user'],
+                        )
+                        await story.send_image(href,
                                                user=ctx['user'])
                     except AttributeError:
                         pass
 
+                    published = dateutil.parser.parse(entry.published)
+                    # TODO: (?) if it isn't there yet maybe we shouldn't /couldn't publish it
+                    from_future = published > datetime.now(timezone.utc)
                     await story.say(
-                        emoji.emojize(':star: {}'.format(entry.title), use_aliases=True),
+                        emoji.emojize(
+                            '{} {}\n\n{}\n\n{}'.format(
+                                ':star2:' if from_future else ':star:',
+                                humanize.naturalday(published),
+                                entry.title,
+                                entry.subtitle,
+                            ), use_aliases=True,
+                        ),
                         user=ctx['user'],
                     )
 
@@ -130,6 +179,10 @@ def setup(story):
                             # entry_link.length
                             logger.debug('[!] before publish {}'.format(entry_link.href))
                             try:
+                                await story.start_typing(
+                                    user=ctx['user'],
+                                )
+
                                 await story.send_audio(url=entry_link.href,
                                                        user=ctx['user'])
                             except commonhttp.errors.HttpRequestError as err:
@@ -157,6 +210,10 @@ def setup(story):
 
             except AttributeError as e:
                 logger.warning(e)
+
+            await story.stop_typing(
+                user=ctx['user'],
+            )
 
             # It could be just link to regular article or link to feed
 
