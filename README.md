@@ -31,20 +31,20 @@ strange and clumsy
 
 ## Where can I get it
 ### :loudspeaker: podcasts
-  - **[BBC The Science Hour](http://www.bbc.co.uk/programmes/p016tmt2)** [RSS](http://podcasts.files.bbci.co.uk/p016tmt2.rss) podcast about frontier of science in the different topics
-  - **[The Talking Machines](http://www.thetalkingmachines.com/)** [RSS](http://www.thetalkingmachines.com/blog?format=RSS) podcast about machine learning, moved from soundcloud, what makes in more problematic to subscribe it through sound cloud
+  - [ ] **[BBC The Science Hour](http://www.bbc.co.uk/programmes/p016tmt2)** [RSS](http://podcasts.files.bbci.co.uk/p016tmt2.rss) podcast about frontier of science in the different topics
+  - [ ] **[The Talking Machines](http://www.thetalkingmachines.com/)** [RSS](http://rss.art19.com/talking-machines) podcast about machine learning, moved from soundcloud, what makes in more problematic to subscribe it through sound cloud
 ### :newspaper: blogs
-  - **[Dr. GP Pulipaka](https://medium.com/@gp_pulipaka/)** [RSS](https://medium.com/feed/@gp_pulipaka) blog about machine learning
-  - **[Google Research Blog](https://research.googleblog.com/)** [RSS](http://googleresearch.blogspot.com/atom.xml)
-  - **[Facebook Research Blog](https://research.fb.com/)** [RSS](https://research.fb.com/feed/)
-  - **[Apple Machine Learning](https://machinelearning.apple.com/)** [RSS]()
-  - **[Open AI Blog](https://blog.openai.com/)** [RSS](https://blog.openai.com/rss/)
-  - **[Tech Crunch about Machine Learning](https://techcrunch.com/tag/machine-learning/)** [RSS](https://techcrunch.com/tag/machine-learning/feed/)
+  - [ ] **[Dr. GP Pulipaka](https://medium.com/@gp_pulipaka/)** [RSS](https://medium.com/feed/@gp_pulipaka) blog about machine learning
+  - [ ] **[Google Research Blog](https://research.googleblog.com/)** [RSS](http://googleresearch.blogspot.com/atom.xml)
+  - [ ] **[Facebook Research Blog](https://research.fb.com/)** [RSS](https://research.fb.com/feed/)
+  - [ ] **[Apple Machine Learning](https://machinelearning.apple.com/)** [RSS]()
+  - [ ] **[Open AI Blog](https://blog.openai.com/)** [RSS](https://blog.openai.com/rss/)
+  - [ ] **[Tech Crunch about Machine Learning](https://techcrunch.com/tag/machine-learning/)** [RSS](https://techcrunch.com/tag/machine-learning/feed/)
 
 ### :speech_balloon: communities
-  - **[Reddit for MachineLearning](https://www.reddit.com/r/MachineLearning/)** [RSS](https://www.reddit.com/r/MachineLearning/.rss)
-  - **[New comments about Canada on Ukraine Developers forum](https://dou.ua/forums/tags/%D0%9A%D0%B0%D0%BD%D0%B0%D0%B4%D0%B0/)** [RSS](https://dou.ua/forums/feed/tag/%D0%9A%D0%B0%D0%BD%D0%B0%D0%B4%D0%B0/)
-  - **[Artificial Network Wikipedia page updates (Revision history)](https://en.wikipedia.org/w/index.php?title=Artificial_intelligence&action=history)** [RSS](https://en.wikipedia.org/w/index.php?title=Artificial_intelligence&feed=atom&action=history)
+  - [ ] **[Reddit for MachineLearning](https://www.reddit.com/r/MachineLearning/)** [RSS](https://www.reddit.com/r/MachineLearning/.rss)
+  - [ ] **[New comments about Canada on Ukraine Developers forum](https://dou.ua/forums/tags/%D0%9A%D0%B0%D0%BD%D0%B0%D0%B4%D0%B0/)** [RSS](https://dou.ua/forums/feed/tag/%D0%9A%D0%B0%D0%BD%D0%B0%D0%B4%D0%B0/)
+  - [ ] **[Artificial Network Wikipedia page updates (Revision history)](https://en.wikipedia.org/w/index.php?title=Artificial_intelligence&action=history)** [RSS](https://en.wikipedia.org/w/index.php?title=Artificial_intelligence&feed=atom&action=history)
 
 ## :construction: IN PROGRESS: How to use RSS bot?
 

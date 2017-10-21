@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+  bot:
+    build: .
+    command: ./scripts/start-sync.sh
+    env_file:
+#      - ./configs/generated_static.env
+      - ./configs/hosting-dev.env
+      - ./configs/thirdparty-services-dev.env
+    environment:
+      - MONGODB_URI=mongo
+      - MONGODB_TEST_DB=test
+      - PORT=8080
+      - PROJECT_NAME=rssbot
+      - PYTHONPATH=/usr/src/app
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/usr/src/app
+      - ../bot-story:/usr/src/botstory
+#      - generated-static:/usr/src/generated_static:rw
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+#  nginx:
+#    build:
+#      context: nginx
+#      dockerfile: Dockerfile
+#    ports:
+#      - "8080:80"
+#    restart: always
+#    env_file:
+#      - ./configs/generated_static.env
+#    depends_on:
+#      - bot
+#    volumes:
+#      - generated-static:/usr/src/generated_static:ro
