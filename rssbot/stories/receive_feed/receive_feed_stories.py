@@ -1,7 +1,10 @@
 from botstory.middlewares import any, option, sticker, text
 from botstory.integrations import commonhttp
+from datetime import datetime, timezone
+import dateutil.parser
 import emoji
 import feedparser
+import humanize
 import logging
 
 import rssbot
@@ -105,8 +108,17 @@ def setup(story):
                     except AttributeError:
                         pass
 
+                    published = dateutil.parser.parse(entry.published)
+                    # TODO: (?) if it isn't there yet maybe we shouldn't /couldn't publish it
+                    from_future = published > datetime.now(timezone.utc)
                     await story.say(
-                        emoji.emojize(':star: {}'.format(entry.title), use_aliases=True),
+                        emoji.emojize(
+                            '{} {}\n{}'.format(
+                                ':star2:' if from_future else ':star:',
+                                humanize.naturalday(published),
+                                entry.title,
+                            ), use_aliases=True,
+                        ),
                         user=ctx['user'],
                     )
 
