@@ -50,14 +50,42 @@ def setup(story):
                 #   'scheme': 'http://www.itunes.com/',
                 #   'term': 'Tech News'},
 
-                await story.say(
-                    'Feed: {} by {}'.format(title, author),
-                    user=ctx['user']
-                )
+                #
+                # Do not yet decided which way is better to reflect feed
+                #
+                # await story.say(
+                #     'Feed: {} by {}'.format(title, author),
+                #     user=ctx['user']
+                # )
+                #
+                # await story.send_image(
+                #     img_url,
+                #     user=ctx['user']
+                # )
 
-                await story.send_image(
-                    img_url,
-                    user=ctx['user']
+                await story.send_template(
+                    payload={
+                        'template_type': 'generic',
+                        'elements': [
+                            {
+                                'title': 'Feed: {} by {}'.format(title, author),
+                                'image_url': img_url,
+                                'subtitle': summary,
+                                # 'default_action': {
+                                #     'type': 'web_url',
+                                #     'url': link,
+                                # },
+                                'buttons': [
+                                    {
+                                        'type': 'web_url',
+                                        'url': link,
+                                        'title': 'Website'
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    user=ctx['user'],
                 )
 
                 for entry in d.entries:
