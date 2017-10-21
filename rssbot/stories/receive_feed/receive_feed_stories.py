@@ -20,8 +20,12 @@ def setup(story):
             logger.info('# receive url')
 
             await story.say(
-                'Thanks for link. '
-                'I\'m going to define whether it feed or some resource',
+                'Thanks for the link. '
+                'I\'m going to define whether it feed or something else.',
+                user=ctx['user'],
+            )
+
+            await story.start_typing(
                 user=ctx['user'],
             )
 
@@ -92,7 +96,11 @@ def setup(story):
                     # entry.id #UID
 
                     try:
-                        await story.send_image(entry.image.href,
+                        href = entry.image.href
+                        await story.start_typing(
+                            user=ctx['user'],
+                        )
+                        await story.send_image(href,
                                                user=ctx['user'])
                     except AttributeError:
                         pass
@@ -158,6 +166,10 @@ def setup(story):
                             # entry_link.length
                             logger.debug('[!] before publish {}'.format(entry_link.href))
                             try:
+                                await story.start_typing(
+                                    user=ctx['user'],
+                                )
+
                                 await story.send_audio(url=entry_link.href,
                                                        user=ctx['user'])
                             except commonhttp.errors.HttpRequestError as err:
@@ -185,6 +197,10 @@ def setup(story):
 
             except AttributeError as e:
                 logger.warning(e)
+
+            await story.stop_typing(
+                user=ctx['user'],
+            )
 
             # It could be just link to regular article or link to feed
 
