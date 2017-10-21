@@ -113,10 +113,11 @@ def setup(story):
                     from_future = published > datetime.now(timezone.utc)
                     await story.say(
                         emoji.emojize(
-                            '{} {}\n{}'.format(
+                            '{} {}\n\n{}\n\n{}'.format(
                                 ':star2:' if from_future else ':star:',
                                 humanize.naturalday(published),
                                 entry.title,
+                                entry.subtitle,
                             ), use_aliases=True,
                         ),
                         user=ctx['user'],
