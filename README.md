@@ -31,7 +31,7 @@ strange and clumsy
 
 ## Where can I get it
 ### :loudspeaker: podcasts
-  - [ ] **[BBC The Science Hour](http://www.bbc.co.uk/programmes/p016tmt2)** [RSS](http://podcasts.files.bbci.co.uk/p016tmt2.rss) podcast about frontier of science in the different topics
+  - [x] **[BBC The Science Hour](http://www.bbc.co.uk/programmes/p016tmt2)** [RSS](http://podcasts.files.bbci.co.uk/p016tmt2.rss) podcast about frontier of science in the different topics
   - [ ] **[The Talking Machines](http://www.thetalkingmachines.com/)** [RSS](http://rss.art19.com/talking-machines) podcast about machine learning, moved from soundcloud, what makes in more problematic to subscribe it through sound cloud
 ### :newspaper: blogs
   - [ ] **[Dr. GP Pulipaka](https://medium.com/@gp_pulipaka/)** [RSS](https://medium.com/feed/@gp_pulipaka) blog about machine learning
