@@ -95,29 +95,39 @@ def setup(story):
                     user=ctx['user'],
                 )
 
-                for entry in d.entries:
+                for entry in d.entries[:4]:
                     # entry.id #UID
 
-                    try:
-                        href = entry.image.href
-                        await story.start_typing(
-                            user=ctx['user'],
-                        )
-                        await story.send_image(href,
-                                               user=ctx['user'])
-                    except AttributeError:
-                        pass
+                    # duplication of images
+                    #
+                    # try:
+                    #     href = entry.image.href
+                    #     await story.start_typing(
+                    #         user=ctx['user'],
+                    #     )
+                    #     await story.send_image(href,
+                    #                            user=ctx['user'])
+                    # except AttributeError:
+                    #     pass
 
                     published = dateutil.parser.parse(entry.published)
                     # TODO: (?) if it isn't there yet maybe we shouldn't /couldn't publish it
                     from_future = published > datetime.now(timezone.utc)
+                    subtitle = entry.get('subtitle')
+
+                    if not subtitle:
+                        try:
+                            subtitle = [content.value for content in entry.content if content.type == 'text/plain'][0]
+                        except AttributeError:
+                            pass
+
                     await story.say(
                         emoji.emojize(
                             '{} {}\n\n{}\n\n{}'.format(
                                 ':star2:' if from_future else ':star:',
                                 humanize.naturalday(published),
                                 entry.title,
-                                entry.subtitle,
+                                subtitle,
                             ), use_aliases=True,
                         ),
                         user=ctx['user'],
