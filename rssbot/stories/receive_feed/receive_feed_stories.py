@@ -7,7 +7,7 @@ import feedparser
 import humanize
 import logging
 
-import rssbot
+from rssbot.stories.receive_feed import media_requests
 from rssbot.utils import is_url
 
 logger = logging.getLogger(__name__)
@@ -34,7 +34,8 @@ def setup(story):
 
             uri = text.get_raw_text(ctx)
             d = feedparser.parse(uri)
-            d.bozo  # does it have problems
+            # does it have problems
+            # d.bozo
             try:
                 org_href = d.href  # link to the original page
                 link = d.feed.link  # looks the same
@@ -123,11 +124,10 @@ def setup(story):
 
                     await story.say(
                         emoji.emojize(
-                            '{} {}\n\n{}\n\n{}'.format(
+                            '{} {}\n\n# {}'.format(
                                 ':star2:' if from_future else ':star:',
                                 humanize.naturalday(published),
                                 entry.title,
-                                subtitle,
                             ), use_aliases=True,
                         ),
                         user=ctx['user'],
@@ -187,14 +187,8 @@ def setup(story):
                         if entry_link.type == 'audio/mpeg':
                             # TODO: publish audio file
                             # entry_link.length
-                            logger.debug('[!] before publish {}'.format(entry_link.href))
                             try:
-                                await story.start_typing(
-                                    user=ctx['user'],
-                                )
-
-                                await story.send_audio(url=entry_link.href,
-                                                       user=ctx['user'])
+                                await  media_requests.upload_podcast(entry_link.href, ctx, story)
                             except commonhttp.errors.HttpRequestError as err:
                                 logger.error('failed on podcast uploading ({}) upload {}'.format(entry_link.href, err))
                                 await story.say(
@@ -203,20 +197,20 @@ def setup(story):
                                     user=ctx['user'],
                                 )
 
-                                # entry.media_content # optional, but could be link
-                                # Example:
-                                # [{'duration': '2998',
-                                #   'expression': 'full',
-                                #   'filesize': '23984000',
-                                #   'medium': 'audio',
-                                #   'type': 'audio/mpeg',
-                                #   'url': 'http://open.live.bbc.co.uk/mediaselector/5/redir/version/2.0/mediaset/audio-nondrm-download-low/proto/http/vpid/p05jw1j9.mp3'}],
-                                # for media_content in entry.media_content:
-                                #     if media_content.type == 'audio/mpeg':
-                                #         # publish audio file
-                                #         media_content.url
-                                #         # for link
-                                #         media_content.href
+                            # entry.media_content # optional, but could be link
+                            # Example:
+                            # [{'duration': '2998',
+                            #   'expression': 'full',
+                            #   'filesize': '23984000',
+                            #   'medium': 'audio',
+                            #   'type': 'audio/mpeg',
+                            #   'url': 'http://open.live.bbc.co.uk/mediaselector/5/redir/version/2.0/mediaset/audio-nondrm-download-low/proto/http/vpid/p05jw1j9.mp3'}],
+                            # for media_content in entry.media_content:
+                            #     if media_content.type == 'audio/mpeg':
+                            #         # publish audio file
+                            #         media_content.url
+                            #         # for link
+                            #         media_content.href
 
             except AttributeError as e:
                 logger.warning(e)
