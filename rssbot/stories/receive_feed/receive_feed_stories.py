@@ -197,6 +197,21 @@ def setup(story):
                                     user=ctx['user'],
                                 )
 
+                            await story.send_template(
+                                payload={
+                                    'template_type': 'button',
+                                    'text': emoji.emojize(subtitle, use_aliases=True),
+                                    'buttons': [
+                                        {
+                                            'type': 'web_url',
+                                            'url': entry_link.href,
+                                            'title': 'Download'
+                                        },
+                                    ]
+                                },
+                                user=ctx['user'],
+                            )
+
                             # entry.media_content # optional, but could be link
                             # Example:
                             # [{'duration': '2998',
