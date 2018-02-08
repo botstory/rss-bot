@@ -1,5 +1,5 @@
 botstory==0.1.5
-dateparser==0.6.0
+dateparser==0.7.0
 emoji==0.4.5
 feedparser==5.2.1
 gunicorn==19.7.1
